@@ -160,14 +160,15 @@ const Community = () => {
                         value={userName}
                         onChange={(e) => setUserName(e.target.value)}
                         placeholder="Your Name"
-                        className="w-full px-4 py-2 border-2 border-primary rounded-xl focus:outline-none focus:ring-2 focus:ring-primary"
+                        className="w-full px-4 py-2 border-2 border-primary rounded-xl text-black focus:outline-none focus:ring-2 focus:ring-primary"
                       />
+
                       <input
                         type="email"
                         value={userEmail}
                         onChange={(e) => setUserEmail(e.target.value)}
                         placeholder="Your Email"
-                        className="w-full px-4 py-2 border-2 border-primary rounded-xl focus:outline-none focus:ring-2 focus:ring-primary"
+                        className="w-full px-4 py-2 border-2 border-primary rounded-xl text-black focus:outline-none focus:ring-2 focus:ring-primary"
                       />
                       <Button variant="hero" size="lg" onClick={startGame}>
                         Start Game
