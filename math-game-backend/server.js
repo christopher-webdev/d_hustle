@@ -319,10 +319,9 @@ const path = require("path");
 // Serve frontend build from df_hustle/dist
 app.use(express.static(path.join(__dirname, "../df_hustle/dist")));
 
-app.get("*", (req, res) => {
+app.use((req, res) => {
   res.sendFile(path.join(__dirname, "../df_hustle/dist/index.html"));
 });
-
 app.listen(port, "0.0.0.0", () => {
   console.log(`Server running on port ${port}`);
 });
