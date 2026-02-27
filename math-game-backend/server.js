@@ -107,15 +107,20 @@ const db = new sqlite3.Database("./leaderboard.db", (err) => {
   }
 });
 
-// Nodemailer configuration
+require("dotenv").config();
+
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.zoho.com",
+  port: 587,
+  secure: false,
   auth: {
-    user: process.env.EMAIL_USER || "your-email@gmail.com", // Replace with your email
-    pass: process.env.EMAIL_PASS || "your-app-password", // Replace with your app-specific password
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+  tls: {
+    rejectUnauthorized: false,
   },
 });
-
 // Get leaderboard (top 5 scores)
 app.get("/api/leaderboard", (req, res) => {
   db.all(

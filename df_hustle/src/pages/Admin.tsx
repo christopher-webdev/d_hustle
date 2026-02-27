@@ -30,7 +30,7 @@ const Admin = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await fetch("http://localhost:3000/api/admin/login", {
+      const response = await fetch("/api/admin/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
@@ -53,8 +53,8 @@ const Admin = () => {
   const fetchData = async () => {
     try {
       const [leaderboardRes, subscribersRes] = await Promise.all([
-        fetch("http://localhost:3000/api/leaderboard"),
-        fetch("http://localhost:3000/api/subscribers"),
+        fetch("/api/leaderboard"),
+        fetch("/api/subscribers"),
       ]);
       const leaderboardData = await leaderboardRes.json();
       const subscribersData = await subscribersRes.json();

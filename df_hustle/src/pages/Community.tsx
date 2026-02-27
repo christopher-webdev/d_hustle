@@ -27,7 +27,7 @@ const Community = () => {
   useEffect(() => {
     const fetchLeaderboard = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/leaderboard");
+        const response = await fetch("/api/leaderboard");
         const data = await response.json();
         setLeaderboard(data);
       } catch (error) {
