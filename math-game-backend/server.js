@@ -231,8 +231,9 @@ app.post("/api/contact", async (req, res) => {
   }
   try {
     const mailOptions = {
-      from: email,
-      to: "info@okilointegratedhub.com",
+      from: `"Danfo Hustle" <${process.env.EMAIL_USER}>`,
+      replyTo: email,
+      to: "support@danfohustle.com",
       subject: `Contact Form: ${subject}`,
       text: `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`,
     };
@@ -315,12 +316,13 @@ cron.schedule("0 0 * * 1", () => {
 
 const path = require("path");
 
-app.use(express.static(path.join(__dirname, "dist")));
+// Serve frontend build from df_hustle/dist
+app.use(express.static(path.join(__dirname, "../df_hustle/dist")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "dist", "index.html"));
+  res.sendFile(path.join(__dirname, "../df_hustle/dist/index.html"));
 });
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+app.listen(port, "0.0.0.0", () => {
+  console.log(`Server running on port ${port}`);
 });
