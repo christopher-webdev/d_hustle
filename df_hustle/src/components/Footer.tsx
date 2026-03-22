@@ -96,7 +96,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border text-center">
           <p className="text-sm text-muted-foreground">
-            © 2025 Danfo Hustle. All rights reserved.
+            © 2026 Danfo Hustle. All rights reserved.
           </p>
         </div>
       </div>
